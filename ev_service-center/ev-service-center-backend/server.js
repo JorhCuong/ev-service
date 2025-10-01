@@ -17,7 +17,7 @@ sequelize.authenticate()
   .then(() => {
     console.log('✅ Database connected');
     app.listen(PORT, () => {
-    console.log(`Server is running on http//ev-service-center:${PORT}`);
+    console.log(`Chúc mừng server của bạn đã chạy thành công http//ev-service-center:${PORT}`);
   });
   })
   .catch(err => console.error(' DB connection failed: ', err));

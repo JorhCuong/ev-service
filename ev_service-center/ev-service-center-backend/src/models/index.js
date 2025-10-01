@@ -7,12 +7,17 @@ const Invoice = require('./invoice');
 const Payment = require('./payment');
 const PartUsed = require('./partUsed');
 const ChecklistItem = require('./checklistItem');
+const Vehicle = require('./vehicle');
 
 //Quan hệ
 
 // User - Booking
 User.hasMany(Booking, { foreignKey: 'Customer_ID' });
 Booking.belongsTo(User, { foreignKey: 'Customer_ID' });
+
+// User - Vehicle
+User.hasMany(Vehicle, { foreignKey: 'Customer_ID' });
+Vehicle.belongsTo(User, { foreignKey: 'Customer_ID' });
 
 // ServiceCenter - Booking
 ServiceCenter.hasMany(Booking, { foreignKey: 'Service_center_ID' });
@@ -42,4 +47,4 @@ ChecklistItem.belongsTo(WorkOrder, { foreignKey: 'Work_order_ID' });
 Booking.belongsTo(User, { foreignKey: 'Customer_ID' });
 Booking.belongsTo(ServiceCenter, { foreignKey: 'Service_center_ID' });
 
-module.exports = { sequelize, User, Booking, ServiceCenter, WorkOrder, Invoice, Payment, PartUsed, ChecklistItem };
+module.exports = { sequelize, User, Booking, ServiceCenter, WorkOrder, Invoice, Payment, PartUsed, ChecklistItem, Vehicle };
